@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shubho Noboborsho 1432 | Bangla New Year</title>
+<style>
+  /* ===== RESET & BASE ===== */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #fff;
+    color: #1a1a1a;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ===== TYPOGRAPHY ===== */
+  h1, h2, h3 { font-weight: 700; line-height: 1.2; }
+  h1 { font-size: clamp(3rem, 8vw, 6rem); }
+  h2 { font-size: clamp(1.8rem, 4vw, 3rem); }
+
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, #cc0000 0%, #8b0000 40%, #b22222 70%, #dc143c 100%);
+    color: #fff;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(255,255,255,0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(255,255,255,0.06) 0%, transparent 50%);
+  }
+  /* alpona-inspired decorative overlays */
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.07;
+    background-image:
+      radial-gradient(circle at 10% 20%, #fff 1px, transparent 1px),
+      radial-gradient(circle at 90% 80%, #fff 1px, transparent 1px),
+      radial-gradient(circle at 50% 50%, #fff 2px, transparent 2px),
+      radial-gradient(circle at 30% 70%, #fff 1.5px, transparent 1.5px),
+      radial-gradient(circle at 70% 30%, #fff 1.5px, transparent 1.5px);
+    background-size: 80px 80px, 100px 100px, 120px 120px, 90px 90px, 110px 110px;
+  }
+  .hero-content { position: relative; z-index: 2; padding: 2rem; }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 0.5rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+    margin-bottom: 0.3rem;
+  }
+  .hero .subtitle {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-weight: 300;
+    opacity: 0.9;
+    margin-bottom: 0.5rem;
+  }
+  .hero .year-display {
+    font-size: clamp(4rem, 10vw, 8rem);
+    font-weight: 900;
+    line-height: 1;
+    background: linear-gradient(180deg, #fff 30%, rgba(255,255,255,0.4) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 1rem 0;
+  }
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+    opacity: 0.7;
+  }
+  .scroll-indicator svg { width: 32px; height: 32px; stroke: white; }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(12px); }
+  }
+
+  /* ===== SECTION COMMON ===== */
+  section { padding: 5rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-heading {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .section-heading h2 {
+    color: #b22222;
+    position: relative;
+    display: inline-block;
+  }
+  .section-heading h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #dc143c;
+    border-radius: 2px;
+  }
+
+  /* ===== TRADITIONS GRID ===== */
+  .traditions {
+    background: #fff;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid #ffe0e0;
+    box-shadow: 0 4px 24px rgba(180,0,0,0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(180,0,0,0.12);
+  }
+  .card-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 1.2rem;
+    background: linear-gradient(135deg, #dc143c, #b22222);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+  }
+  .card h3 { color: #b22222; margin-bottom: 0.6rem; }
+  .card p { color: #555; font-size: 0.95rem; }
+
+  /* ===== FOOD SECTION ===== */
+  .foods {
+    background: #fdf5f5;
+  }
+  .food-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  .food-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #ffe0e0;
+    box-shadow: 0 2px 16px rgba(180,0,0,0.05);
+    transition: transform 0.3s;
+  }
+  .food-card:hover { transform: translateY(-4px); }
+  .food-placeholder {
+    height: 160px;
+    background: linear-gradient(135deg, #dc143c 0%, #8b0000 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+  }
+  .food-card .info { padding: 1.2rem; text-align: center; }
+  .food-card h4 { color: #b22222; margin-bottom: 0.3rem; }
+  .food-card .info p { color: #777; font-size: 0.85rem; }
+
+  /* ===== COUNTDOWN / CTA ===== */
+  .cta-section {
+    background: #b22222;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.05) 0%, transparent 60%),
+                radial-gradient(circle at 70% 50%, rgba(255,255,255,0.04) 0%, transparent 60%);
+  }
+  .cta-section .container { position: relative; z-index: 1; }
+  .countdown {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin: 2rem 0 3rem;
+  }
+  .countdown-item {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(6px);
+    border: 2px solid rgba(255,255,255,0.25);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    min-width: 100px;
+  }
+  .countdown-item .num {
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+  .countdown-item .label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.7;
+    margin-top: 0.3rem;
+  }
+  .btn {
+    display: inline-block;
+    background: #fff;
+    color: #b22222;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  }
+  .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  }
+
+  /* ===== GREETING STRIP ===== */
+  .greeting-strip {
+    background: #fff;
+    padding: 2rem;
+    text-align: center;
+    border-top: 4px solid #dc143c;
+    border-bottom: 4px solid #dc143c;
+  }
+  .greeting-strip p {
+    font-size: 1.4rem;
+    color: #b22222;
+    font-weight: 600;
+    font-style: italic;
+  }
+  .greeting-strip .bengali {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.3rem;
+    color: #8b0000;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #1a1a1a;
+    color: #888;
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+  }
+  footer .heart { color: #dc143c; }
+
+  /* ===== ANIMATIONS ===== */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    section { padding: 3rem 1.2rem; }
+    .countdown { gap: 1rem; }
+    .countdown-item { padding: 1rem 1.2rem; min-width: 70px; }
+    .countdown-item .num { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <span class="hero-badge">Pohela Boishakh</span>
+    <p class="subtitle">Welcome to the</p>
+    <h1>Bangla New Year</h1>
+    <div class="year-display">১৪৩২</div>
+    <p class="subtitle" style="font-size:1.5rem;">April 14, 2025</p>
+  </div>
+  <div class="scroll-indicator">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 5v14M5 12l7 7 7-7"/>
+    </svg>
+  </div>
+</header>
+
+<!-- GREETING STRIP -->
+<div class="greeting-strip">
+  <span class="bengali">শুভ নববর্ষ</span>
+  <p>Shubho Noboborsho! &mdash; Wishing you joy, prosperity, and new beginnings.</p>
+</div>
+
+<!-- TRADITIONS -->
+<section class="traditions">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Traditions &amp; Celebrations</h2>
+    </div>
+    <div class="grid">
+      <div class="card fade-in">
+        <div class="card-icon">🎭</div>
+        <h3>Mangal Shobhajatra</h3>
+        <p>A vibrant mass procession with giant masks, floats, and colourful banners organised by fine arts students — a UNESCO Intangible Cultural Heritage of Humanity.</p>
+      </div>
+      <div class="card fade-in">
+        <div class="card-icon">🎨</div>
+        <h3>Alpona Art</h3>
+        <p>Intricate white rice-paste patterns drawn on floors and courtyards to welcome the new year with purity and artistic beauty.</p>
+      </div>
+      <div class="card fade-in">
+        <div class="card-icon">🛍️</div>
+        <h3>Boishakhi Mela</h3>
+        <p>Traditional fairs bursting with folk music, dance, handicrafts, and local delicacies that bring communities together in open celebration.</p>
+      </div>
+      <div class="card fade-in">
+        <div class="card-icon">🧡</div>
+        <h3>Haal Khata</h3>
+        <p>Traders close old ledgers and open fresh account books, often treating loyal customers to sweets — a symbol of renewal in business.</p>
+      </div>
+      <div class="card fade-in">
+        <div class="card-icon">👘</div>
+        <h3>Red &amp; White Attire</h3>
+        <p>Men wear red-and-white panjabis while women drape red-bordered white sarees, embodying the festival's signature colours.</p>
+      </div>
+      <div class="card fade-in">
+        <div class="card-icon">🎶</div>
+        <h3>Rabindra Sangeet</h3>
+        <p>The morning begins with Tagore's "Esho He Boishakh" echoing through Dhaka and Kolkata, calling everyone to embrace the new year.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOODS -->
+<section class="foods">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Festive Delicacies</h2>
+    </div>
+    <div class="food-grid">
+      <div class="food-card fade-in">
+        <div class="food-placeholder">🐟</div>
+        <div class="info"><h4>Panta Ilish</h4><p>Fermented rice with fried hilsa — the iconic Pohela Boishakh breakfast.</p></div>
+      </div>
+      <div class="food-card fade-in">
+        <div class="food-placeholder">🍚</div>
+        <div class="info"><h4>Bhuna Khichuri</h4><p>Rich, slow-cooked rice and lentils served during monsoon &amp; festive gatherings.</p></div>
+      </div>
+      <div class="food-card fade-in">
+        <div class="food-placeholder">🍘</div>
+        <div class="info"><h4>Pitha</h4><p>Traditional rice cakes — sweet or savoury — steamed, fried, or griddle-baked.</p></div>
+      </div>
+      <div class="food-card fade-in">
+        <div class="food-placeholder">🍨</div>
+        <div class="info"><h4>Mishti Doi</h4><p>Sweetened fermented yoghurt in earthen pots, a Bengali classic.</p></div>
+      </div>
+      <div class="food-card fade-in">
+        <div class="food-placeholder">🧆</div>
+        <div class="info"><h4>Fuchka</h4><p>Crispy hollow puris filled with spiced tamarind water — street-food royalty.</p></div>
+      </div>
+      <div class="food-card fade-in">
+        <div class="food-placeholder">🍬</div>
+        <div class="info"><h4>Roshogolla</h4><p>Soft, spongy cottage-cheese balls soaked in light sugar syrup.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / COUNTDOWN -->
+<section class="cta-section">
+  <div class="container">
+    <h2 style="color:#fff;">Countdown to Noboborsho</h2>
+    <div class="countdown" id="countdown">
+      <div class="countdown-item"><div class="num" id="days">--</div><div class="label">Days</div></div>
+      <div class="countdown-item"><div class="num" id="hours">--</div><div class="label">Hours</div></div>
+      <div class="countdown-item"><div class="num" id="mins">--</div><div class="label">Minutes</div></div>
+      <div class="countdown-item"><div class="num" id="secs">--</div><div class="label">Seconds</div></div>
+    </div>
+    <p style="margin-bottom:2rem;font-size:1.1rem;opacity:0.9;">Join millions as we welcome <strong>1432</strong> with open hearts.</p>
+    <a href="#traditions" class="btn">Explore Traditions</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Made with <span class="heart">&hearts;</span> for Pohela Boishakh &bull; শুভ নববর্ষ ১৪৩২</p>
+</footer>
+
+<script>
+  // --- COUNTDOWN to April 14 ---
+  function updateCountdown() {
+    const now = new Date();
+    const target = new Date(now.getFullYear(), 3, 14); // April 14
+    if (now > target) target.setFullYear(target.getFullYear() + 1);
+
+    const diff = target - now;
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const m = Math.floor((diff / (1000 * 60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+
+    document.getElementById('days').textContent = String(d).padStart(2, '0');
+    document.getElementById('hours').textContent = String(h).padStart(2, '0');
+    document.getElementById('mins').textContent = String(m).padStart(2, '0');
+    document.getElementById('secs').textContent = String(s).padStart(2, '0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // --- SCROLL REVEAL ---
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
