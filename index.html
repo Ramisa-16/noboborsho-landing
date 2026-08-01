@@ -1,25 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shubho Noboborsho 1432 | Bangla New Year</title>
+<title>শুভ নববর্ষ ১৪৩২ | বাংলা নববর্ষ</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src https://fonts.gstatic.com; style-src https://fonts.googleapis.com 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data:; frame-src 'self'">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700;800;900&family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   /* ===== RESET & BASE ===== */
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
+  :root {
+    --primary: #b22222;
+    --primary-dark: #8b0000;
+    --primary-light: #dc143c;
+    --accent: #fff;
+    --bg: #fff;
+    --bg-alt: #fdf5f5;
+    --text: #1a1a1a;
+    --text-muted: #555;
+    --border: #ffe0e0;
+    --shadow: rgba(180,0,0,0.06);
+    --shadow-hover: rgba(180,0,0,0.12);
+  }
+  [data-theme="dark"] {
+    --primary: #ff6b6b;
+    --primary-dark: #cc0000;
+    --primary-light: #ff8e8e;
+    --accent: #f5f5f5;
+    --bg: #1a0a0a;
+    --bg-alt: #2a1010;
+    --text: #f5e6e6;
+    --text-muted: #c9b0b0;
+    --border: #4a2020;
+    --shadow: rgba(255,100,100,0.08);
+    --shadow-hover: rgba(255,100,100,0.18);
+  }
   body {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background: #fff;
-    color: #1a1a1a;
-    line-height: 1.6;
+    font-family: 'Hind Siliguri', 'Noto Sans Bengali', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
     overflow-x: hidden;
+    transition: background 0.4s ease, color 0.4s ease;
   }
 
   /* ===== TYPOGRAPHY ===== */
-  h1, h2, h3 { font-weight: 700; line-height: 1.2; }
-  h1 { font-size: clamp(3rem, 8vw, 6rem); }
-  h2 { font-size: clamp(1.8rem, 4vw, 3rem); }
+  h1, h2, h3 { font-weight: 700; line-height: 1.3; }
+  h1 { font-size: clamp(2.5rem, 7vw, 5rem); font-family: 'Noto Sans Bengali', 'Hind Siliguri', sans-serif; letter-spacing: -0.01em; }
+  h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-family: 'Noto Sans Bengali', 'Hind Siliguri', sans-serif; }
+  ::selection { background: var(--primary-light); color: #fff; }
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: var(--bg-alt); }
+  ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 5px; }
 
   /* ===== HERO ===== */
   .hero {
@@ -64,18 +99,20 @@
     border-radius: 50px;
     font-size: 1.1rem;
     letter-spacing: 3px;
-    text-transform: uppercase;
     margin-bottom: 1.5rem;
+    animation: fadeInDown 1s ease 0.2s both;
   }
   .hero h1 {
     text-shadow: 0 4px 30px rgba(0,0,0,0.3);
     margin-bottom: 0.3rem;
+    animation: fadeInUp 1s ease 0.4s both;
   }
   .hero .subtitle {
     font-size: clamp(1.2rem, 3vw, 2rem);
     font-weight: 300;
     opacity: 0.9;
     margin-bottom: 0.5rem;
+    animation: fadeInUp 1s ease 0.6s both;
   }
   .hero .year-display {
     font-size: clamp(4rem, 10vw, 8rem);
@@ -100,6 +137,18 @@
     0%, 100% { transform: translateX(-50%) translateY(0); }
     50% { transform: translateX(-50%) translateY(12px); }
   }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
 
   /* ===== SECTION COMMON ===== */
   section { padding: 5rem 2rem; }
@@ -109,20 +158,20 @@
     margin-bottom: 3rem;
   }
   .section-heading h2 {
-    color: #b22222;
+    color: var(--primary);
     position: relative;
     display: inline-block;
   }
   .section-heading h2::after {
-    content: '';
+    content: '✦';
     position: absolute;
-    bottom: -10px;
+    bottom: -28px;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: #dc143c;
-    border-radius: 2px;
+    color: var(--primary-light);
+    font-size: 1rem;
+    background: var(--bg);
+    padding: 0 10px;
   }
 
   /* ===== TRADITIONS GRID ===== */
@@ -135,31 +184,48 @@
     gap: 2rem;
   }
   .card {
-    background: #fff;
+    background: var(--bg);
     border-radius: 16px;
     padding: 2rem;
     text-align: center;
-    border: 1px solid #ffe0e0;
-    box-shadow: 0 4px 24px rgba(180,0,0,0.06);
-    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 24px var(--shadow);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
   }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(220,20,60,0.08), transparent);
+    transition: left 0.6s ease;
+  }
+  .card:hover::before { left: 100%; }
   .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 40px rgba(180,0,0,0.12);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 16px 48px var(--shadow-hover);
+    border-color: var(--primary-light);
   }
   .card-icon {
     width: 70px;
     height: 70px;
     margin: 0 auto 1.2rem;
-    background: linear-gradient(135deg, #dc143c, #b22222);
+    background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 2rem;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 4px 16px rgba(220,20,60,0.3);
   }
-  .card h3 { color: #b22222; margin-bottom: 0.6rem; }
-  .card p { color: #555; font-size: 0.95rem; }
+  .card:hover .card-icon { transform: rotate(10deg) scale(1.1); }
+  .card h3 { color: var(--primary); margin-bottom: 0.6rem; }
+  .card p { color: var(--text-muted); font-size: 0.95rem; }
 
   /* ===== FOOD SECTION ===== */
   .foods {
@@ -171,25 +237,38 @@
     gap: 1.5rem;
   }
   .food-card {
-    background: #fff;
+    background: var(--bg);
     border-radius: 16px;
     overflow: hidden;
-    border: 1px solid #ffe0e0;
-    box-shadow: 0 2px 16px rgba(180,0,0,0.05);
-    transition: transform 0.3s;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 16px var(--shadow);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
   }
-  .food-card:hover { transform: translateY(-4px); }
+  .food-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 12px 36px var(--shadow-hover);
+  }
   .food-placeholder {
     height: 160px;
-    background: linear-gradient(135deg, #dc143c 0%, #8b0000 100%);
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-dark) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 3rem;
+    transition: transform 0.4s ease;
+    position: relative;
+    overflow: hidden;
   }
+  .food-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.15) 0%, transparent 70%);
+  }
+  .food-card:hover .food-placeholder { transform: scale(1.05); }
   .food-card .info { padding: 1.2rem; text-align: center; }
-  .food-card h4 { color: #b22222; margin-bottom: 0.3rem; }
-  .food-card .info p { color: #777; font-size: 0.85rem; }
+  .food-card h4 { color: var(--primary); margin-bottom: 0.3rem; }
+  .food-card .info p { color: var(--text-muted); font-size: 0.85rem; }
 
   /* ===== COUNTDOWN / CTA ===== */
   .cta-section {
@@ -221,48 +300,81 @@
     border-radius: 16px;
     padding: 1.5rem 2rem;
     min-width: 100px;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  .countdown-item:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.18);
   }
   .countdown-item .num {
     font-size: 2.5rem;
     font-weight: 900;
     line-height: 1;
+    font-variant-numeric: tabular-nums;
+    font-family: 'Noto Sans Bengali', sans-serif;
   }
   .countdown-item .label {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
     opacity: 0.7;
     margin-top: 0.3rem;
   }
   .btn {
     display: inline-block;
     background: #fff;
-    color: #b22222;
+    color: var(--primary);
     padding: 1rem 3rem;
     border-radius: 50px;
     font-weight: 700;
     font-size: 1.1rem;
     text-decoration: none;
     letter-spacing: 1px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
     box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
   }
+  .btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(178,34,34,0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+  }
+  .btn:hover::before { width: 400px; height: 400px; }
   .btn:hover {
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.03);
     box-shadow: 0 8px 30px rgba(0,0,0,0.3);
   }
+  .btn:focus-visible { outline: 3px solid #ffd700; outline-offset: 3px; }
 
   /* ===== GREETING STRIP ===== */
   .greeting-strip {
-    background: #fff;
-    padding: 2rem;
+    background: var(--bg);
+    padding: 2.5rem 2rem;
     text-align: center;
-    border-top: 4px solid #dc143c;
-    border-bottom: 4px solid #dc143c;
+    border-top: 4px solid var(--primary-light);
+    border-bottom: 4px solid var(--primary-light);
+    position: relative;
   }
+  .greeting-strip::before, .greeting-strip::after {
+    content: '✦';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-light);
+    font-size: 1.5rem;
+  }
+  .greeting-strip::before { left: 1.5rem; }
+  .greeting-strip::after { right: 1.5rem; }
   .greeting-strip p {
     font-size: 1.4rem;
-    color: #b22222;
+    color: var(--primary);
     font-weight: 600;
     font-style: italic;
   }
@@ -270,7 +382,9 @@
     font-size: 2.5rem;
     display: block;
     margin-bottom: 0.3rem;
-    color: #8b0000;
+    color: var(--primary-dark);
+    font-family: 'Noto Sans Bengali', sans-serif;
+    font-weight: 800;
   }
 
   /* ===== FOOTER ===== */
@@ -281,15 +395,277 @@
     padding: 2rem;
     font-size: 0.9rem;
   }
-  footer .heart { color: #dc143c; }
+  footer .heart { color: var(--primary-light); animation: heartbeat 1.5s ease-in-out infinite; display: inline-block; }
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
 
   /* ===== ANIMATIONS ===== */
   .fade-in {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
+  .fade-in:nth-child(1) { transition-delay: 0.05s; }
+  .fade-in:nth-child(2) { transition-delay: 0.15s; }
+  .fade-in:nth-child(3) { transition-delay: 0.25s; }
+  .fade-in:nth-child(4) { transition-delay: 0.35s; }
+  .fade-in:nth-child(5) { transition-delay: 0.45s; }
+  .fade-in:nth-child(6) { transition-delay: 0.55s; }
+
+  /* ===== THEME TOGGLE ===== */
+  .theme-toggle {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 100;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+  .theme-toggle:hover { transform: rotate(20deg) scale(1.1); background: rgba(255,255,255,0.25); }
+  .theme-toggle:focus-visible { outline: 3px solid #ffd700; outline-offset: 3px; }
+
+  /* ===== PROGRESS BAR ===== */
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-light), var(--primary-dark));
+    z-index: 99;
+    transition: width 0.1s ease-out;
+    box-shadow: 0 2px 8px rgba(220,20,60,0.4);
+  }
+
+  /* ===== GALLERY ===== */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  .gallery-item {
+    height: 220px;
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 12px var(--shadow);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+  }
+  .gallery-item:hover { transform: scale(1.04); box-shadow: 0 8px 28px var(--shadow-hover); }
+  .gallery-item .g-img {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3.5rem;
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-dark) 100%);
+    position: relative;
+  }
+  .gallery-item .g-img::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.15) 0%, transparent 60%);
+  }
+  .gallery-item .g-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, transparent 60%);
+    display: flex; align-items: flex-end; justify-content: center;
+    padding: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .gallery-item:hover .g-overlay { opacity: 1; }
+  .gallery-item .g-overlay span {
+    color: #fff; font-weight: 600; font-size: 0.95rem; text-align: center;
+  }
+  /* Lightbox */
+  .lightbox {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(0,0,0,0.92);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .lightbox.open { opacity: 1; pointer-events: auto; }
+  .lightbox-content {
+    position: relative;
+    text-align: center;
+    max-width: 90vw; max-height: 85vh;
+    transform: scale(0.9);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .lightbox.open .lightbox-content { transform: scale(1); }
+  .lightbox-img {
+    width: 350px; height: 350px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 7rem;
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-dark) 100%);
+    border-radius: 16px;
+  }
+  .lightbox-caption { color: #fff; margin-top: 1rem; font-size: 1.2rem; font-weight: 600; }
+  .lightbox-close {
+    position: absolute; top: -3rem; right: 0;
+    background: none; border: none;
+    color: #fff; font-size: 2.5rem; cursor: pointer;
+    line-height: 1; transition: transform 0.3s ease;
+  }
+  .lightbox-close:hover { transform: scale(1.2); color: var(--primary-light); }
+  .lightbox-prev, .lightbox-next {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+    color: #fff; font-size: 1.8rem; cursor: pointer;
+    width: 48px; height: 48px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  .lightbox-prev { left: -4rem; }
+  .lightbox-next { right: -4rem; }
+  .lightbox-prev:hover, .lightbox-next:hover { background: rgba(255,255,255,0.25); transform: translateY(-50%) scale(1.1); }
+
+  /* ===== MUSIC TOGGLE ===== */
+  .music-toggle {
+    position: fixed; top: 1.5rem; left: 1.5rem; z-index: 100;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    width: 48px; height: 48px; border-radius: 50%;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+  .music-toggle:hover { transform: scale(1.1); background: rgba(255,255,255,0.25); }
+  .music-toggle:focus-visible { outline: 3px solid #ffd700; outline-offset: 3px; }
+  .music-toggle .music-icon { animation: spin 4s linear infinite paused; }
+  .music-toggle.playing .music-icon { animation-play-state: running; }
+  @keyframes spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+  .music-hint {
+    position: fixed; top: 2.4rem; left: 4rem; z-index: 100;
+    color: #fff; font-size: 0.75rem; opacity: 0;
+    transition: opacity 0.3s ease;
+    background: rgba(0,0,0,0.5); padding: 0.25rem 0.7rem; border-radius: 20px;
+    pointer-events: none;
+  }
+  .music-hint.show { opacity: 0.9; }
+
+  /* ===== SHARE BUTTONS ===== */
+  .share-bar {
+    display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;
+  }
+  .share-btn {
+    display: flex; align-items: center; gap: 0.5rem;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    color: #fff; font-weight: 600; font-size: 1rem;
+    text-decoration: none; cursor: pointer; border: none;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  }
+  .share-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+  .share-btn:focus-visible { outline: 3px solid #ffd700; outline-offset: 3px; }
+  .share-btn .icon { font-size: 1.2rem; }
+  .share-fb { background: #1877f2; }
+  .share-wa { background: #25d366; }
+  .share-tw { background: #1da1f2; }
+  .share-copy { background: var(--text-muted); }
+
+  /* ===== GREETING CARD GENERATOR ===== */
+  .card-gen {
+    max-width: 600px; margin: 0 auto;
+    display: grid; gap: 1.2rem;
+  }
+  .card-gen label { font-weight: 600; color: var(--text); margin-bottom: 0.3rem; display: block; }
+  .card-gen input, .card-gen select {
+    padding: 0.8rem 1rem; font-size: 1rem;
+    border: 2px solid var(--border); border-radius: 10px;
+    background: var(--bg); color: var(--text);
+    font-family: inherit; width: 100%;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card-gen input:focus, .card-gen select:focus {
+    border-color: var(--primary-light); outline: none;
+    box-shadow: 0 0 0 3px rgba(220,20,60,0.1);
+  }
+  .card-gen-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .card-gen-row > div { flex: 1; min-width: 140px; }
+  .card-preview {
+    background: linear-gradient(135deg, #cc0000 0%, #8b0000 50%, #dc143c 100%);
+    border-radius: 16px; padding: 2.5rem 2rem; text-align: center;
+    color: #fff; min-height: 200px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    box-shadow: 0 8px 32px rgba(180,0,0,0.2);
+  }
+  .card-preview::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle at 15% 25%, rgba(255,255,255,0.1) 2px, transparent 2px),
+      radial-gradient(circle at 85% 75%, rgba(255,255,255,0.1) 2px, transparent 2px);
+    background-size: 60px 60px;
+  }
+  .card-preview .pc-badge { font-size: 1rem; letter-spacing: 2px; opacity: 0.85; margin-bottom: 0.5rem; position: relative; }
+  .card-preview .pc-greeting { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; position: relative; font-family: 'Noto Sans Bengali', sans-serif; }
+  .card-preview .pc-name { font-size: 1.4rem; font-weight: 600; margin-bottom: 0.3rem; position: relative; }
+  .card-preview .pc-msg { font-size: 1rem; opacity: 0.9; position: relative; max-width: 80%; }
+  .card-preview .pc-year { font-size: 1.8rem; font-weight: 900; opacity: 0.7; position: relative; margin-top: 0.5rem; }
+  .card-gen-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-gen {
+    background: var(--primary); color: #fff;
+    padding: 0.9rem 2rem; border-radius: 50px;
+    border: none; cursor: pointer; font-weight: 700; font-size: 1rem;
+    font-family: inherit;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+    box-shadow: 0 4px 16px rgba(180,0,0,0.2);
+  }
+  .btn-gen:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 8px 24px rgba(180,0,0,0.3); }
+  .btn-gen:focus-visible { outline: 3px solid #ffd700; outline-offset: 3px; }
+  .btn-gen.download { background: var(--text); }
+
+  /* ===== MAP ===== */
+  .map-container {
+    background: var(--bg-alt); border-radius: 16px;
+    padding: 1.5rem; border: 1px solid var(--border);
+    box-shadow: 0 4px 24px var(--shadow);
+  }
+  .map-list { display: grid; gap: 0.8rem; margin-top: 1.5rem; }
+  .map-item {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1rem 1.2rem; border-radius: 12px;
+    background: var(--bg); border: 1px solid var(--border);
+    cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .map-item:hover { transform: translateX(6px); border-color: var(--primary-light); box-shadow: 0 4px 16px var(--shadow); }
+  .map-item .pin {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; flex-shrink: 0;
+  }
+  .map-item .mi-info h4 { color: var(--primary); margin-bottom: 0.2rem; }
+  .map-item .mi-info p { color: var(--text-muted); font-size: 0.85rem; }
+  .map-item .mi-info a { color: var(--primary-light); text-decoration: none; font-size: 0.85rem; font-weight: 600; }
+  .map-item .mi-info a:hover { text-decoration: underline; }
+
+  /* ===== SECTION VARIANT ===== */
+  .section-alt { background: var(--bg-alt); }
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 768px) {
@@ -297,20 +673,44 @@
     .countdown { gap: 1rem; }
     .countdown-item { padding: 1rem 1.2rem; min-width: 70px; }
     .countdown-item .num { font-size: 1.8rem; }
+    .theme-toggle { top: 1rem; right: 1rem; width: 42px; height: 42px; font-size: 1.1rem; }
+    .greeting-strip::before, .greeting-strip::after { display: none; }
+    .lightbox-prev { left: 0.5rem; }
+    .lightbox-next { right: 0.5rem; }
+    .lightbox-img { width: 250px; height: 250px; font-size: 5rem; }
+    .music-toggle { top: 1rem; left: 1rem; width: 42px; height: 42px; font-size: 1.1rem; }
+    .music-hint { display: none; }
+    .card-preview .pc-greeting { font-size: 2rem; }
+    .card-preview .pc-name { font-size: 1.2rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   }
 </style>
 </head>
 <body>
 
+<!-- PROGRESS BAR -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- THEME TOGGLE -->
+<button class="theme-toggle" id="themeToggle" aria-label="টিম টগল">🌙</button>
+
+<!-- MUSIC TOGGLE -->
+<button class="music-toggle" id="musicToggle" aria-label="বাজনা চালু/বন্ধ">
+  <span class="music-icon">🎵</span>
+</button>
+<div class="music-hint" id="musicHint">বাজনা চালু করতে ক্লিক করুন</div>
+
 <!-- HERO -->
 <header class="hero">
   <div class="hero-pattern"></div>
   <div class="hero-content">
-    <span class="hero-badge">Pohela Boishakh</span>
-    <p class="subtitle">Welcome to the</p>
-    <h1>Bangla New Year</h1>
+    <span class="hero-badge">পহেলা বৈশাখ</span>
+    <p class="subtitle">স্বাগতম</p>
+    <h1>বাংলা নববর্ষ</h1>
     <div class="year-display">১৪৩২</div>
-    <p class="subtitle" style="font-size:1.5rem;">April 14, 2025</p>
+    <p class="subtitle" style="font-size:1.5rem;">১৪ এপ্রিল, ২০২৫</p>
   </div>
   <div class="scroll-indicator">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -322,45 +722,91 @@
 <!-- GREETING STRIP -->
 <div class="greeting-strip">
   <span class="bengali">শুভ নববর্ষ</span>
-  <p>Shubho Noboborsho! &mdash; Wishing you joy, prosperity, and new beginnings.</p>
+  <p>নতুন বছর আপনার জীবনে বয়ে আনুক অনাবিল আনন্দ, শান্তি ও সমৃদ্ধি।</p>
+</div>
+
+<!-- GALLERY -->
+<section class="section-alt" id="gallery">
+  <div class="container">
+    <div class="section-heading">
+      <h2>উৎসবের ছবি</h2>
+    </div>
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item fade-in" data-idx="0">
+        <div class="g-img">🎭</div>
+        <div class="g-overlay"><span>মঙ্গল শোভাযাত্রা</span></div>
+      </div>
+      <div class="gallery-item fade-in" data-idx="1">
+        <div class="g-img">🎨</div>
+        <div class="g-overlay"><span>আলপনা অঙ্কন</span></div>
+      </div>
+      <div class="gallery-item fade-in" data-idx="2">
+        <div class="g-img">🛍️</div>
+        <div class="g-overlay"><span>বৈশাখী মেলা</span></div>
+      </div>
+      <div class="gallery-item fade-in" data-idx="3">
+        <div class="g-img">👘</div>
+        <div class="g-overlay"><span>লাল-সাদা পোশাক</span></div>
+      </div>
+      <div class="gallery-item fade-in" data-idx="4">
+        <div class="g-img">🐟</div>
+        <div class="g-overlay"><span>পান্তা ইলিশ</span></div>
+      </div>
+      <div class="gallery-item fade-in" data-idx="5">
+        <div class="g-img">🎶</div>
+        <div class="g-overlay"><span>রবীন্দ্রসঙ্গীত</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-content">
+    <button class="lightbox-close" id="lbClose" aria-label="বন্ধ">&times;</button>
+    <button class="lightbox-prev" id="lbPrev" aria-label="পূর্ববর্তী">&#8249;</button>
+    <div class="lightbox-img" id="lbImg"></div>
+    <div class="lightbox-caption" id="lbCaption"></div>
+    <button class="lightbox-next" id="lbNext" aria-label="পরবর্তী">&#8250;</button>
+  </div>
 </div>
 
 <!-- TRADITIONS -->
-<section class="traditions">
+<section class="traditions" id="traditions">
   <div class="container">
     <div class="section-heading">
-      <h2>Traditions &amp; Celebrations</h2>
+      <h2>ঐতিহ্য ও উদযাপন</h2>
     </div>
     <div class="grid">
       <div class="card fade-in">
         <div class="card-icon">🎭</div>
-        <h3>Mangal Shobhajatra</h3>
-        <p>A vibrant mass procession with giant masks, floats, and colourful banners organised by fine arts students — a UNESCO Intangible Cultural Heritage of Humanity.</p>
+        <h3>মঙ্গল শোভাযাত্রা</h3>
+        <p>চারুকলার শিক্ষার্থীদের আয়োজনে বিশাল মুখোশ, ভাস্কর্য ও বর্ণিল পতাকা নিয়ে গণশোভাযাত্রা — ইউনেস্কোর স্বীকৃত বিশ্ব সাংস্কৃতিক ঐতিহ্য।</p>
       </div>
       <div class="card fade-in">
         <div class="card-icon">🎨</div>
-        <h3>Alpona Art</h3>
-        <p>Intricate white rice-paste patterns drawn on floors and courtyards to welcome the new year with purity and artistic beauty.</p>
+        <h3>আলপনা</h3>
+        <p>চালের গুঁড়ার সাদা জলে আঁকা নিখুঁত নকশা — ঘরের আঙিনায় নতুন বছরকে স্বাগত জানানোর এক চিরন্তন শৈল্পিক রীতি।</p>
       </div>
       <div class="card fade-in">
         <div class="card-icon">🛍️</div>
-        <h3>Boishakhi Mela</h3>
-        <p>Traditional fairs bursting with folk music, dance, handicrafts, and local delicacies that bring communities together in open celebration.</p>
+        <h3>বৈশাখী মেলা</h3>
+        <p>লোকসংগীত, নৃত্য, হস্তশিল্প আর মুখরোচক খাবারের পসরা — সব মিলিয়ে এক প্রাণবন্ত মিলনমেলা যা সারা দেশের মানুষকে একসূত্রে বাঁধে।</p>
       </div>
       <div class="card fade-in">
         <div class="card-icon">🧡</div>
-        <h3>Haal Khata</h3>
-        <p>Traders close old ledgers and open fresh account books, often treating loyal customers to sweets — a symbol of renewal in business.</p>
+        <h3>হালখাতা</h3>
+        <p>পুরোনো হিসাবের খাতা বন্ধ করে নতুন খাতা খোলার দিন — খদ্দেরদের মিষ্টিমুখ করিয়ে ব্যবসায়িক নবায়নের প্রতীকী উৎসব।</p>
       </div>
       <div class="card fade-in">
         <div class="card-icon">👘</div>
-        <h3>Red &amp; White Attire</h3>
-        <p>Men wear red-and-white panjabis while women drape red-bordered white sarees, embodying the festival's signature colours.</p>
+        <h3>লাল-সাদা পোশাক</h3>
+        <p>পুরুষেরা লাল-সাদা পাঞ্জাবি আর নারীরা লাল পাড় সাদা শাড়িতে সেজে ওঠেন — এই উৎসবের আপন রঙে।</p>
       </div>
       <div class="card fade-in">
         <div class="card-icon">🎶</div>
-        <h3>Rabindra Sangeet</h3>
-        <p>The morning begins with Tagore's "Esho He Boishakh" echoing through Dhaka and Kolkata, calling everyone to embrace the new year.</p>
+        <h3>রবীন্দ্রসঙ্গীত</h3>
+        <p>ভোরের আলোয় বেজে ওঠে "এসো হে বৈশাখ" — ঢাকা থেকে কলকাতা, সর্বত্র ছড়িয়ে পড়ে নববর্ষের আহ্বান।</p>
       </div>
     </div>
   </div>
@@ -370,32 +816,32 @@
 <section class="foods">
   <div class="container">
     <div class="section-heading">
-      <h2>Festive Delicacies</h2>
+      <h2>উৎসবের খাবার</h2>
     </div>
     <div class="food-grid">
       <div class="food-card fade-in">
         <div class="food-placeholder">🐟</div>
-        <div class="info"><h4>Panta Ilish</h4><p>Fermented rice with fried hilsa — the iconic Pohela Boishakh breakfast.</p></div>
+        <div class="info"><h4>পান্তা ইলিশ</h4><p>পানিতে ভেজানো ভাত আর ভাজা ইলিশ — পহেলা বৈশাখের ঐতিহ্যবাহী সকালের নাস্তা।</p></div>
       </div>
       <div class="food-card fade-in">
         <div class="food-placeholder">🍚</div>
-        <div class="info"><h4>Bhuna Khichuri</h4><p>Rich, slow-cooked rice and lentils served during monsoon &amp; festive gatherings.</p></div>
+        <div class="info"><h4>ভুনা খিচুড়ি</h4><p>ঘিয়ে ধীরে ধীরে রাঁধা চাল-ডালের মিশ্রণ — বর্ষা ও উৎসবের অপরিহার্য পদ।</p></div>
       </div>
       <div class="food-card fade-in">
         <div class="food-placeholder">🍘</div>
-        <div class="info"><h4>Pitha</h4><p>Traditional rice cakes — sweet or savoury — steamed, fried, or griddle-baked.</p></div>
+        <div class="info"><h4>পিঠা</h4><p>চালের গুঁড়ার তৈরি ঐতিহ্যবাহী পিঠা — ভাপা, ভাজা না তাওয়ায় সেঁকা — মিষ্টি হোক বা নোনতা।</p></div>
       </div>
       <div class="food-card fade-in">
         <div class="food-placeholder">🍨</div>
-        <div class="info"><h4>Mishti Doi</h4><p>Sweetened fermented yoghurt in earthen pots, a Bengali classic.</p></div>
+        <div class="info"><h4>মিষ্টি দই</h4><p>মাটির ভাঁড়ে জমানো ঘন মিষ্টি দই — বাঙালির চিরন্তন ক্লাসিক।</p></div>
       </div>
       <div class="food-card fade-in">
         <div class="food-placeholder">🧆</div>
-        <div class="info"><h4>Fuchka</h4><p>Crispy hollow puris filled with spiced tamarind water — street-food royalty.</p></div>
+        <div class="info"><h4>ফুচকা</h4><p>মচমচে পুরি, টক-ঝাল তেঁতুলের পানি আর মসলাদার পুর — পথখাবারের রাজা।</p></div>
       </div>
       <div class="food-card fade-in">
         <div class="food-placeholder">🍬</div>
-        <div class="info"><h4>Roshogolla</h4><p>Soft, spongy cottage-cheese balls soaked in light sugar syrup.</p></div>
+        <div class="info"><h4>রসগোল্লা</h4><p>ছানার নরম দানার তৈরি রসে ডোবানো মিষ্টি — বাঙালির অহংকার।</p></div>
       </div>
     </div>
   </div>
@@ -404,21 +850,140 @@
 <!-- CTA / COUNTDOWN -->
 <section class="cta-section">
   <div class="container">
-    <h2 style="color:#fff;">Countdown to Noboborsho</h2>
+    <h2 style="color:#fff;">নববর্ষের কাউন্টডাউন</h2>
     <div class="countdown" id="countdown">
-      <div class="countdown-item"><div class="num" id="days">--</div><div class="label">Days</div></div>
-      <div class="countdown-item"><div class="num" id="hours">--</div><div class="label">Hours</div></div>
-      <div class="countdown-item"><div class="num" id="mins">--</div><div class="label">Minutes</div></div>
-      <div class="countdown-item"><div class="num" id="secs">--</div><div class="label">Seconds</div></div>
+      <div class="countdown-item"><div class="num" id="days">--</div><div class="label">দিন</div></div>
+      <div class="countdown-item"><div class="num" id="hours">--</div><div class="label">ঘণ্টা</div></div>
+      <div class="countdown-item"><div class="num" id="mins">--</div><div class="label">মিনিট</div></div>
+      <div class="countdown-item"><div class="num" id="secs">--</div><div class="label">সেকেন্ড</div></div>
     </div>
-    <p style="margin-bottom:2rem;font-size:1.1rem;opacity:0.9;">Join millions as we welcome <strong>1432</strong> with open hearts.</p>
-    <a href="#traditions" class="btn">Explore Traditions</a>
+    <p style="margin-bottom:2rem;font-size:1.1rem;opacity:0.9;">লক্ষ-কোটি মানুষের সঙ্গে আমরাও বরণ করি <strong>১৪৩২</strong> কে — খোলা হৃদয়ে।</p>
+    <a href="#traditions" class="btn">ঐতিহ্য দেখুন</a>
+  </div>
+</section>
+
+<!-- SHARE -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-heading">
+      <h2>শেয়ার করুন</h2>
+    </div>
+    <p style="text-align:center;color:var(--text-muted);margin-bottom:2rem;">নববর্ষের শুভেচ্ছা পেয়ে যান প্রিয়জনের কাছে</p>
+    <div class="share-bar">
+      <a href="#" class="share-btn share-fb" id="shareFb" aria-label="ফেসবুকে শেয়ার"><span class="icon">📘</span> ফেসবুক</a>
+      <a href="#" class="share-btn share-wa" id="shareWa" aria-label="হোয়াটসঅ্যাপে শেয়ার"><span class="icon">💬</span> হোয়াটসঅ্যাপ</a>
+      <a href="#" class="share-btn share-tw" id="shareTw" aria-label="টুইটারে শেয়ার"><span class="icon">🐦</span> টুইটার</a>
+      <button class="share-btn share-copy" id="shareCopy" aria-label="লিঙ্ক কপি"><span class="icon">🔗</span> লিঙ্ক কপি</button>
+    </div>
+    <p id="copyMsg" style="text-align:center;color:var(--primary);font-weight:600;margin-top:1rem;opacity:0;transition:opacity 0.3s;">✓ লিঙ্ক কপি হয়েছে!</p>
+  </div>
+</section>
+
+<!-- GREETING CARD GENERATOR -->
+<section id="cardGen">
+  <div class="container">
+    <div class="section-heading">
+      <h2>শুভেচ্ছা কার্ড তৈরি করুন</h2>
+    </div>
+    <div class="card-gen">
+      <div class="card-gen-row">
+        <div>
+          <label for="gcName">আপনার নাম</label>
+          <input type="text" id="gcName" placeholder="যেমন: রাহুল" maxlength="30">
+        </div>
+        <div>
+          <label for="gcTheme">থিম</label>
+          <select id="gcTheme">
+            <option value="red">লাল (ক্লাসিক)</option>
+            <option value="gold">সোনালি</option>
+            <option value="green">সবুজ</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label for="gcMsg">ব্যক্তিগত বার্তা</label>
+        <input type="text" id="gcMsg" placeholder="যেমন: নতুন বছর ভালো কাটুক!" maxlength="60">
+      </div>
+      <div class="card-preview" id="cardPreview">
+        <div class="pc-badge">পহেলা বৈশাখ</div>
+        <div class="pc-greeting">শুভ নববর্ষ</div>
+        <div class="pc-name" id="pcName">—</div>
+        <div class="pc-msg" id="pcMsg">নতুন বছর ভালো কাটুক!</div>
+        <div class="pc-year">১৪৩২</div>
+      </div>
+      <div class="card-gen-actions">
+        <button class="btn-gen" id="genCard">কার্ড তৈরি করুন</button>
+        <button class="btn-gen download" id="dlCard">⬇ ডাউনলোড করুন</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-heading">
+      <h2>উদযাপনের স্থান</h2>
+    </div>
+    <div class="map-container">
+      <p style="color:var(--text-muted);font-size:0.9rem;text-align:center;">বাংলাদেশ ও পশ্চিমবঙ্গে পহেলা বৈশাখের প্রধান উদযাপন কেন্দ্রগুলো:</p>
+      <div class="map-list" id="mapList">
+        <div class="map-item">
+          <div class="pin">📍</div>
+          <div class="mi-info">
+            <h4>রমনা বটমূল, ঢাকা</h4>
+            <p>ভোরে রবীন্দ্রসঙ্গীত পরিবেশনার মধ্যে দিয়ে শুরু হয় নববর্ষ উদযাপন।</p>
+            <a href="https://maps.google.com/?q=Ramna+Batamul+Dhaka" target="_blank" rel="noopener noreferrer">ম্যাপে দেখুন →</a>
+          </div>
+        </div>
+        <div class="map-item">
+          <div class="pin">📍</div>
+          <div class="mi-info">
+            <h4>ঢাকা বিশ্ববিদ্যালয় এলাকা</h4>
+            <p>চারুকলা থেকে মঙ্গল শোভাযাত্রা বের হয় — ইউনেস্কো স্বীকৃত সাংস্কৃতিক ঐতিহ্য।</p>
+            <a href="https://maps.google.com/?q=Faculty+of+Fine+Arts+Dhaka+University" target="_blank" rel="noopener noreferrer">ম্যাপে দেখুন →</a>
+          </div>
+        </div>
+        <div class="map-item">
+          <div class="pin">📍</div>
+          <div class="mi-info">
+            <h4>শিল্পকলা একাডেমি, ঢাকা</h4>
+            <p>সারাদিন চলে সাংস্কৃতিক অনুষ্ঠান, লোকসঙ্গীত ও নৃত্য।</p>
+            <a href="https://maps.google.com/?q=Shilpakala+Academy+Dhaka" target="_blank" rel="noopener noreferrer">ম্যাপে দেখুন →</a>
+          </div>
+        </div>
+        <div class="map-item">
+          <div class="pin">📍</div>
+          <div class="mi-info">
+            <h4>সাঁঝবেলুন, চাঁদনিচক, কলকাতা</h4>
+            <p>পশ্চিমবঙ্গে বাংলা নববর্ষের প্রধান সাংস্কৃতিক উদযাপন কেন্দ্র।</p>
+            <a href="https://maps.google.com/?q=Chandni+Chowk+Kolkata" target="_blank" rel="noopener noreferrer">ম্যাপে দেখুন →</a>
+          </div>
+        </div>
+        <div class="map-item">
+          <div class="pin">📍</div>
+          <div class="mi-info">
+            <h4>নন্দন, কলকাতা</h4>
+            <p>নববর্ষ উপলক্ষে চলচ্চিত্র, আলোকচিত্র ও সাংস্কৃতিক উৎসবের আসর।</p>
+            <a href="https://maps.google.com/?q=Nandan+Kolkata" target="_blank" rel="noopener noreferrer">ম্যাপে দেখুন →</a>
+          </div>
+        </div>
+        <div class="map-item">
+          <div class="pin">📍</div>
+          <div class="mi-info">
+            <h4>মাইকেল মধুসূদন মেমোরিয়াল, কলকাতা</h4>
+            <p>শহরের প্রাচীন নববর্ষ উদযাপন কেন্দ্রগুলির একটি।</p>
+            <a href="https://maps.google.com/?q=Michael+Madhusudan+Memorial+Kolkata" target="_blank" rel="noopener noreferrer">ম্যাপে দেখুন →</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>Made with <span class="heart">&hearts;</span> for Pohela Boishakh &bull; শুভ নববর্ষ ১৪৩২</p>
+  <p>পহেলা বৈশাখের জন্য ভালোবাসায় তৈরি <span class="heart">&hearts;</span> &bull; শুভ নববর্ষ ১৪৩২</p>
 </footer>
 
 <script>
@@ -447,6 +1012,201 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.15 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // --- THEME TOGGLE ---
+  const themeBtn = document.getElementById('themeToggle');
+  const saved = localStorage.getItem('theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+  themeBtn.textContent = document.documentElement.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙';
+  themeBtn.addEventListener('click', () => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const next = isDark ? 'light' : 'dark';
+    if (next === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+    else document.documentElement.removeAttribute('data-theme');
+    localStorage.setItem('theme', next);
+    themeBtn.textContent = next === 'dark' ? '☀️' : '🌙';
+  });
+
+  // --- SCROLL PROGRESS ---
+  const progress = document.getElementById('progressBar');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+    progress.style.width = pct + '%';
+  }, { passive: true });
+
+  // --- GALLERY LIGHTBOX ---
+  const galleryData = [
+    { icon: '🎭', caption: 'মঙ্গল শোভাযাত্রা' },
+    { icon: '🎨', caption: 'আলপনা অঙ্কন' },
+    { icon: '🛍️', caption: 'বৈশাখী মেলা' },
+    { icon: '👘', caption: 'লাল-সাদা পোশাক' },
+    { icon: '🐟', caption: 'পান্তা ইলিশ' },
+    { icon: '🎶', caption: 'রবীন্দ্রসঙ্গীত' },
+  ];
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const lbCaption = document.getElementById('lbCaption');
+  let lbIdx = 0;
+
+  function openLb(i) {
+    lbIdx = i;
+    lbImg.textContent = galleryData[i].icon;
+    lbCaption.textContent = galleryData[i].caption;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLb() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function navLb(dir) {
+    lbIdx = (lbIdx + dir + galleryData.length) % galleryData.length;
+    lbImg.textContent = galleryData[lbIdx].icon;
+    lbCaption.textContent = galleryData[lbIdx].caption;
+  }
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', () => openLb(parseInt(item.dataset.idx)));
+  });
+  document.getElementById('lbClose').addEventListener('click', closeLb);
+  document.getElementById('lbPrev').addEventListener('click', () => navLb(-1));
+  document.getElementById('lbNext').addEventListener('click', () => navLb(1));
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLb(); });
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') navLb(-1);
+    if (e.key === 'ArrowRight') navLb(1);
+  });
+
+  // --- MUSIC TOGGLE ---
+  // Using Web Audio API to generate a simple melodic loop (no external file needed)
+  const musicBtn = document.getElementById('musicToggle');
+  const musicHint = document.getElementById('musicHint');
+  let audioCtx = null;
+  let musicPlaying = false;
+  let musicLoop = null;
+  // Simple pentatonic melody notes (frequencies in Hz)
+  const melody = [523.25, 587.33, 659.25, 783.99, 880, 783.99, 659.25, 587.33, 523.25, 659.25, 587.33, 523.25];
+  let noteIdx = 0;
+
+  function playNote(freq) {
+    if (!audioCtx) return;
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = 'sine';
+    osc.frequency.value = freq;
+    gain.gain.setValueAtTime(0, audioCtx.currentTime);
+    gain.gain.linearRampToValueAtTime(0.08, audioCtx.currentTime + 0.05);
+    gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.5);
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start();
+    osc.stop(audioCtx.currentTime + 0.5);
+  }
+
+  function startMusic() {
+    audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+    musicPlaying = true;
+    musicBtn.classList.add('playing');
+    musicLoop = setInterval(() => {
+      playNote(melody[noteIdx]);
+      noteIdx = (noteIdx + 1) % melody.length;
+    }, 400);
+  }
+  function stopMusic() {
+    musicPlaying = false;
+    musicBtn.classList.remove('playing');
+    if (musicLoop) { clearInterval(musicLoop); musicLoop = null; }
+  }
+  musicBtn.addEventListener('click', () => {
+    if (musicPlaying) { stopMusic(); musicHint.textContent = 'বাজনা বন্ধ'; }
+    else { startMusic(); musicHint.textContent = 'এখন বাজছে 🎶'; }
+    musicHint.classList.add('show');
+    setTimeout(() => musicHint.classList.remove('show'), 2000);
+  });
+
+  // --- SHARE ---
+  const shareUrl = window.location.href;
+  const shareText = 'শুভ নববর্ষ ১৪৩২! পহেলা বৈশাখের শুভেচ্ছা গ্রহণ করুন। 🌺';
+  document.getElementById('shareFb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl);
+  document.getElementById('shareWa').href = 'https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + shareUrl);
+  document.getElementById('shareTw').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(shareUrl);
+  document.getElementById('shareCopy').addEventListener('click', () => {
+    navigator.clipboard.writeText(shareUrl).then(() => {
+      const msg = document.getElementById('copyMsg');
+      msg.style.opacity = '1';
+      setTimeout(() => msg.style.opacity = '0', 2500);
+    });
+  });
+
+  // --- GREETING CARD GENERATOR ---
+  const gcName = document.getElementById('gcName');
+  const gcMsg = document.getElementById('gcMsg');
+  const gcTheme = document.getElementById('gcTheme');
+  const pcName = document.getElementById('pcName');
+  const pcMsg = document.getElementById('pcMsg');
+  const cardPreview = document.getElementById('cardPreview');
+  const themes = {
+    red: 'linear-gradient(135deg, #cc0000 0%, #8b0000 50%, #dc143c 100%)',
+    gold: 'linear-gradient(135deg, #b8860b 0%, #8b6914 50%, #daa520 100%)',
+    green: 'linear-gradient(135deg, #2e7d32 0%, #1b5e20 50%, #43a047 100%)',
+  };
+  function updatePreview() {
+    pcName.textContent = gcName.value || '—';
+    pcMsg.textContent = gcMsg.value || 'নতুন বছর ভালো কাটুক!';
+    cardPreview.style.background = themes[gcTheme.value];
+  }
+  gcName.addEventListener('input', updatePreview);
+  gcMsg.addEventListener('input', updatePreview);
+  gcTheme.addEventListener('change', updatePreview);
+  document.getElementById('genCard').addEventListener('click', updatePreview);
+
+  function escapeXml(str) {
+    return str.replace(/[&<>'"]/g, function (ch) {
+      const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&apos;', '"': '&quot;' };
+      return map[ch];
+    });
+  }
+
+  // Download card as SVG (opens in new tab for save)
+  document.getElementById('dlCard').addEventListener('click', () => {
+    const name = escapeXml(gcName.value) || 'প্রিয়জন';
+    const msg = escapeXml(gcMsg.value) || 'নতুন বছর ভালো কাটুক!';
+    const bg = themes[gcTheme.value];
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="${bg.match(/#[0-9a-f]{6}/i)?.[0] || '#cc0000'}"/>
+        <stop offset="100%" stop-color="${(bg.match(/#[0-9a-f]{6}/gi)?.[1]) || '#dc143c'}"/>
+      </linearGradient></defs>
+      <rect width="600" height="400" rx="20" fill="url(#g)"/>
+      <text x="300" y="80" text-anchor="middle" fill="white" font-size="20" opacity="0.85" font-family="Noto Sans Bengali, sans-serif">পহেলা বৈশাখ</text>
+      <text x="300" y="160" text-anchor="middle" fill="white" font-size="52" font-weight="bold" font-family="Noto Sans Bengali, sans-serif">শুভ নববর্ষ</text>
+      <text x="300" y="220" text-anchor="middle" fill="white" font-size="24" font-weight="600" font-family="Noto Sans Bengali, sans-serif">${name}</text>
+      <text x="300" y="265" text-anchor="middle" fill="white" font-size="18" opacity="0.9" font-family="Noto Sans Bengali, sans-serif">${msg}</text>
+      <text x="300" y="330" text-anchor="middle" fill="white" font-size="36" font-weight="bold" opacity="0.7" font-family="Noto Sans Bengali, sans-serif">১৪৩২</text>
+    </svg>`;
+    const blob = new Blob([svg], { type: 'image/svg+xml' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'shubho-noboborsho-1432.svg';
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+
+  // --- MAP: smooth scroll to location link when clicking item ---
+  document.querySelectorAll('.map-item').forEach(item => {
+    item.addEventListener('click', e => {
+      const link = item.querySelector('a');
+      if (link && !e.target.closest('a')) {
+        // Highlight animation
+        item.style.transform = 'translateX(6px) scale(1.02)';
+        setTimeout(() => item.style.transform = '', 300);
+      }
+    });
+  });
 </script>
 </body>
 </html>
